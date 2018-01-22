@@ -1,3 +1,4 @@
+const vibrancy = require('electron-vibrancy');
 const parse = require('parse-color');
 
 const CONFIG_KEY = 'hyperTransparentDynamic';
@@ -14,7 +15,7 @@ function makeTransparent(color, alpha = DEFAULT_ALPHA) {
   return `rgba(${rgb.join(', ')}, ${alpha})`;
 }
 
-module.exports.onWindow = browserWindow => browserWindow.setVibrancy('dark');
+module.exports.onWindow = browserWindow => vibrancy.setVibrancy(browserWindow, 2);
 
 module.exports.decorateConfig = config => {
   const { alpha } = config[CONFIG_KEY] || {};
